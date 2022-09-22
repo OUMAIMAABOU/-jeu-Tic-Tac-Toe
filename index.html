@@ -12,12 +12,10 @@
      <h1 class="text-center text-white mb-5">tic tac toe</h1>
     <div class="d-flex align-items-center flex-column" id="step1" >
         <div class="mt-5">
-            <label class="text-white">jouer 1</label>
-            <input type="text" id="jouer_1">
+            <input type="text" id="jouer_1" placeholder="jouer 1">
         </div>
         <div class="mt-2">
-            <label class="text-white">jouer 2</label>
-            <input type="text" id="jouer_2" >
+            <input type="text" id="jouer_2"  placeholder="jouer 2" >
         </div>
         <input type="button" name="sub" value="confirmer" class="mt-4" id="save">
         
@@ -28,25 +26,24 @@
             <h3  class="text-danger px-2 mx-2"> VS </h3 >
             <h3 class="text-white" id="name_2"> </h3 >
         </div>
-        <h3 class="text-white text-center mb-5 border border-3  border-top-0 border-start-0 border-end-0 border-info" id="player"></h3 >
-
+        <h3 class="text-white text-center mb-5 border border-3  border-top-0 border-start-0 border-end-0 border-info" id="player" name="1"></h3 >
         <div class="row mt-3">
-            <div class="col border border-white p-5  border-3 border-top-0 border-start-0 box text-white"></div>
-            <div class="col border border-white p-5  border-3 border-top-0 box text-white"></div>
-            <div class="col border border-white p-5  border-3 border-top-0 border-end-0 box text-white"></div>
+            <div class="col border border-white p-5  border-3 border-top-0 border-start-0 box text-white" name="0"></div>
+            <div class="col border border-white p-5  border-3 border-top-0 box text-white"  name="1"></div>
+            <div class="col border border-white p-5  border-3 border-top-0 border-end-0 box text-white"  name="2"></div>
         </div>
         <div class="row">
-            <div class="col border border-white p-5  border-3 border-start-0 box text-white"  ></div>
-            <div class="col border border-white p-5  border-3 box text-white"></div>
-            <div class="col border border-white p-5  border-3 border-end-0 box text-white"></div>
+            <div class="col border border-white p-5  border-3 border-start-0 box text-white" name="3"></div>
+            <div class="col border border-white p-5  border-3 box text-white" name="4"></div>
+            <div class="col border border-white p-5  border-3 border-end-0 box text-white" name="5"></div>
         </div>
         <div class="row">
-            <div class="col border border-white p-5  border-3 border-bottom-0 border-start-0 box text-white"></div>
-            <div class="col border border-white p-5  border-3 border-bottom-0 box text-white "></div>
-            <div class="col border border-white p-5  border-3 border-bottom-0 border-end-0 box text-white" ></div>
+            <div class="col border border-white p-5  border-3 border-bottom-0 border-start-0 box text-white" name="6"></div>
+            <div class="col border border-white p-5  border-3 border-bottom-0 box text-white" name="7"></div>
+            <div class="col border border-white p-5  border-3 border-bottom-0 border-end-0 box text-white" name="8"></div>
         </div>
         <input type="button" value = "Rafraîchir" onclick="history.go(0)" />
-        <input type="button" value = "clear" id="clear">
+        <input type="button" value = "clear"id="clear">
 
     </div>
     
