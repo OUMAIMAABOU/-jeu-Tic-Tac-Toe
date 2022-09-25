@@ -33,9 +33,20 @@
         [0,3,6],
         [1,4,7],
         [2,4,6],
+        [2,6,4],
+        [6,2,4],
+        [4,6,2],
         [2,5,8],
+        [1,2,0],
+        [1,0,2],
         [3,4,5],
+        [3,0,6],
+        [6,0,3],
         [6,7,8],
+        [2,8,5],
+        [5,2,8],
+
+
     ];
     boxs.forEach(function(ps)
     {
@@ -46,6 +57,7 @@
         ps.innerHTML=tic;
         tic="O"; 
         player1.push(boxs.indexOf(this)); 
+       console.log('X='+player1) 
         find(player1,"jouer_1")
        }
             else if(tic=="O" && ps.innerText.trim()=="")
@@ -54,13 +66,15 @@
                 ps.innerHTML="O";
                 tic="X";
                 player2.push(boxs.indexOf(this)); 
+       console.log('O='+player2) 
+
                 find(player2,"jouer_2")
             }
         });
     });
 
-    function find(Player,win){
-        for(var j=0; j<winner.length ; j++)
+    var find =function(Player,win){
+        for(let j=0; j<winner.length ; j++)
         {
             if(JSON.stringify(Player) === JSON.stringify(winner[j])||JSON.stringify(Player.reverse() )=== JSON.stringify(winner[j]))
             {
