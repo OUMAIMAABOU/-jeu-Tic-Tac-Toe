@@ -7,6 +7,7 @@
     let boxs =document.querySelectorAll(".box");
     let player1=[];   
     let player2=[];  
+    let choix1=[];  
     boxs=Array.from(boxs);
     let tic="X";
     document.getElementById("step2").style.display = 'none';
@@ -19,18 +20,14 @@
         document.getElementById("step2").setAttribute("class", "d-block");
         ;
     }
-
-    // clear.onclick = function()
-    // {
-    //     console.log(document.querySelectorAll(".box").value)
-    //     // document.querySelectorAll(".box").innerHTML="";
-    // }
-
     let winner =
     [
         [0,1,2],
         [0,4,8],
+        [8,0,4],
+        [4,0,8],
         [0,3,6],
+        [4,8,0],
         [1,4,7],
         [2,4,6],
         [2,6,4],
@@ -45,30 +42,27 @@
         [6,7,8],
         [2,8,5],
         [5,2,8],
-
-
     ];
     boxs.forEach(function(ps)
     {
-        ps.addEventListener("click",function(){
-              if(tic=="X" && ps.innerText.trim()=="")
-    {
-        document.getElementById("player").innerHTML="player is "+localStorage.getItem("jouer_1");
-        ps.innerHTML=tic;
-        tic="O"; 
-        player1.push(boxs.indexOf(this)); 
-       console.log('X='+player1) 
-        find(player1,"jouer_1")
-       }
+        ps.addEventListener("click",function(event){
+            if(tic=="X" && ps.innerText.trim()=="")
+            {
+                document.getElementById("player").innerHTML="player is "+localStorage.getItem("jouer_1");
+                ps.innerHTML=tic;
+                tic="O"; 
+                player1.push(boxs.indexOf(this)); 
+                console.log('X='+player1) 
+                find(player1,"jouer_1") 
+            }
             else if(tic=="O" && ps.innerText.trim()=="")
             {
                 document.getElementById("player").innerHTML="player is "+localStorage.getItem("jouer_2");
                 ps.innerHTML="O";
                 tic="X";
                 player2.push(boxs.indexOf(this)); 
-       console.log('O='+player2) 
-
-                find(player2,"jouer_2")
+                console.log('O='+player2) 
+               find(player2,"jouer_2")
             }
         });
     });
@@ -80,16 +74,23 @@
             {
                 document.getElementById("player").innerHTML="winner is "+localStorage.getItem(win);
                 document.getElementById('player').style.backgroundColor = 'green' ; 
-            }
+                tic="";
+              }
+            
             if(player1.length>2)
             {
                 if(JSON.stringify(Player.slice(2)) === JSON.stringify(winner[j])||JSON.stringify(Player.slice(2).reverse()) === JSON.stringify(winner[j]))
                 {
                     document.getElementById("player").innerHTML="winner is "+localStorage.getItem(win);
                      document.getElementById('player').style.backgroundColor = 'green' ; 
-                }
+                     tic="";
+                       }
             } 
+       
         }
+        return false
+
+      
     }
     
 
