@@ -1,13 +1,10 @@
-
-
     const jouer1=document.getElementById("jouer_1");
     const jouer2=document.getElementById("jouer_2");
     const save=document.getElementById("save");
     let clear=document.getElementById("clear");
     let boxs =document.querySelectorAll(".box");
     let player1=[];   
-    let player2=[];  
-    let choix1=[];  
+    let player2=[]; 
     boxs=Array.from(boxs);
     let tic="X";
     document.getElementById("step2").style.display = 'none';
@@ -18,7 +15,8 @@
         document.getElementById("name_2").innerHTML="jouer 2:"+localStorage.getItem("jouer_2");
         document.getElementById("step1").setAttribute("class", "d-none");
         document.getElementById("step2").setAttribute("class", "d-block");
-        ;
+        document.getElementById("name_1").innerHTML=x;
+
     }
     let winner =
     [
@@ -43,8 +41,8 @@
         [2,8,5],
         [5,2,8],
     ];
-    clear.addEventListener("click",function(){
-       
+    clear.addEventListener("click",function()
+    {
         boxs.forEach(function(ps)
         {
           ps.innerHTML="";  
@@ -53,8 +51,7 @@
           tic="X";
           document.getElementById("player").innerHTML="player is "+localStorage.getItem("jouer_1");
           document.getElementById('player').style.backgroundColor = '' ; 
-        })
-           
+        }); 
     });
 
     boxs.forEach(function(ps)
@@ -66,7 +63,6 @@
                 ps.innerHTML=tic;
                 tic="O"; 
                 player1.push(boxs.indexOf(this)); 
-                console.log('X='+player1) 
                 find(player1,"jouer_1") 
             }
             else if(tic=="O" && ps.innerText.trim()=="")
@@ -75,8 +71,7 @@
                 ps.innerHTML="O";
                 tic="X";
                 player2.push(boxs.indexOf(this)); 
-                console.log('O='+player2) 
-               find(player2,"jouer_2")
+                find(player2,"jouer_2")
             }
         });
     });
